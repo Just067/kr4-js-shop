@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Учебный интернет-магазин ShopProject: кроссовки, рюкзаки и украшения на каждый день. Быстрая заявка на сайте, доставка по России.">
+  <title>Главная — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preload" fetchpriority="high" as="image" href="images/hero-mobile.jpg" type="image/jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="index.html">
+              Главная
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">
+              Популярные товары
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main" class="main">
+    <section class="hero">
+
+      <picture class="hero__media">
+        <source media="(min-width: 1200px)" srcset="images/hero-desktop.jpg">
+        <source media="(min-width: 768px)" srcset="images/hero-tablet.jpg">
+        <img src="images/hero-mobile.jpg" alt="Каталог учебных товаров" width="640" height="360" class="hero__image" fetchpriority="high">
+      </picture>
+
+      <div class="hero__content">
+        <h1 class="hero__title">Учебный интернет-магазин</h1>
+        <p class="hero__lead">
+          Это стартовая страница учебного frontend-проекта.
+          В дальнейшем на её основе будет разработан многостраничный сайт
+          интернет-магазина или каталога услуг.
+        </p>
+        <a class="button button--primary" href="#popular">Перейти к товарам</a>
+      </div>
+
+    </section>
+
+    <section class="section" id="advantages">
+      <h2>Преимущества проекта</h2>
+
+      <ul class="advantages-list">
+        <li>понятная HTML-структура;</li>
+        <li>семантические блоки страницы;</li>
+        <li>подключение внешнего CSS-файла;</li>
+        <li>подготовка к разработке многостраничного сайта.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="popular">
+      <h2>Популярные товары</h2>
+
+      <div class="products-grid">
+        <article class="product-card product-card--featured">
+          <img class="product-card__image" src="images/product-1.jpeg" alt="Кроссовки Urban Runner" width="300" height="200" loading="lazy">
+          <h3 class="product-card__title">Кроссовки Urban Runner</h3>
+          <p class="product-card__description">Лёгкие городские кроссовки с дышащим верхом и мягкой амортизацией.</p>
+          <p class="product-card__price">Цена: 1000 руб.</p>
+          <div class="product-card__actions">
+            <a class="button button--secondary product-card__button" href="product-1.html">
+              Подробнее
+            </a>
+            <a class="button button--primary product-card__button" href="order.html?product=Кроссовки%20Urban%20Runner">
+              Заказать
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card product-card--featured">
+          <img class="product-card__image" src="images/product-2.jpg" alt="Кожаный рюкзак CityPack" width="300" height="200" loading="lazy">
+          <h3 class="product-card__title">Кожаный рюкзак CityPack</h3>
+          <p class="product-card__description">Городской рюкзак из натуральной кожи с отделением для ноутбука.</p>
+          <p class="product-card__price">Цена: 1500 руб.</p>
+          <div class="product-card__actions">
+            <a class="button button--secondary product-card__button" href="product-2.html">
+              Подробнее
+            </a>
+            <a class="button button--primary product-card__button" href="order.html?product=Кроссовки%20Urban%20Runner">
+              Заказать
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card product-card--featured">
+          <img class="product-card__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="300" height="200" loading="lazy">
+          <h3 class="product-card__title">Серебряное кольцо Aurora</h3>
+          <p class="product-card__description">Минималистичное кольцо из серебра 925 пробы с фианитом.</p>
+          <p class="product-card__price">Цена: 2000 руб.</p>
+          <div class="product-card__actions">
+            <a class="button button--secondary product-card__button" href="product-3.html">
+              Подробнее
+            </a>
+            <a class="button button--primary product-card__button" href="order.html?product=Кроссовки%20Urban%20Runner">
+              Заказать
+            </a>
+          </div>
+
+      </div>
+    </section>
+
+    <aside class="aside-info">
+      <h2>О магазине</h2>
+      <p>
+        ShopProject — учебный проект интернет-магазина городских аксессуаров
+        и одежды. Ассортимент небольшой, но подобран осмысленно:
+        обувь, сумки и украшения на каждый день.
+      </p>
+      <p>
+        Все заказы оформляются через <a href="order.html">форму заявки</a>,
+        менеджер связывается для подтверждения в течение рабочего дня.
+      </p>
+    </aside>
+
+  </main>
+
+  <footer id="contacts">
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <dialog class="callback-dialog" id="callback-dialog" aria-labelledby="callback-dialog-title">
+    <h2 class="callback-dialog__title" id="callback-dialog-title">
+      Заказать обратный звонок
+    </h2>
+
+    <p class="callback-dialog__hint">
+      Оставьте имя и телефон — перезвоним в течение 15 минут.
+    </p>
+
+    <form class="callback-form" id="callback-form" action="#" method="post" novalidate>
+      <div class="callback-form__field">
+        <label class="callback-form__label" for="callback-name">Имя</label>
+        <input class="callback-form__input" id="callback-name" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="callback-form__field">
+        <label class="callback-form__label" for="callback-phone">Телефон</label>
+        <input class="callback-form__input" id="callback-phone" name="phone" type="tel" autocomplete="tel"
+          placeholder="+7 (___) ___-__-__" required>
+      </div>
+
+      <label class="callback-form__consent">
+        <input type="checkbox" name="consent" required>
+        Согласен на обработку персональных данных
+      </label>
+
+      <div class="callback-form__actions">
+        <button class="button button--secondary" type="button" id="close-callback-dialog">
+          Отмена
+        </button>
+        <button class="button button--primary" type="submit">
+          Жду звонка
+        </button>
+      </div>
+    </form>
+
+    <p class="callback-dialog__success" id="callback-success" hidden>
+      Спасибо! Мы скоро вам позвоним.
+    </p>
+  </dialog>
+
+  <button class="callback-fab" type="button" id="open-callback-dialog" aria-label="Заказать обратный звонок">
+    <span aria-hidden="true">📞</span>
+  </button>
+
+</body>
+
+</html>

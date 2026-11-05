@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформление заявки на товар в учебном интернет-магазине.">
+  <title>Оформление заявки — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Оформление заявки — Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">
+              Главная
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">
+              Популярные товары
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__current">Оформление заявки</span>
+    </nav>
+
+    <section class="section">
+      <h1>Оформление заявки</h1>
+      <p>
+        Заполните форму, и мы свяжемся с вами для подтверждения заказа.
+        Поля, отмеченные звёздочкой, обязательны.
+      </p>
+    </section>
+
+    <div class="order-layout">
+
+      <section class="order-layout__form">
+        <h2>Данные заявки</h2>
+
+        <form class="order-form" id="order-form-page" action="#" method="post" novalidate>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-name">
+              Имя <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="order-form__input"
+              id="order-name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-email">
+              E-mail <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="order-form__input"
+              id="order-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-phone">
+              Телефон <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="order-form__input"
+              id="order-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder="+7 (___) ___-__-__"
+              required>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-topic">Тема заявки</label>
+            <select class="order-form__select" id="order-topic" name="topic">
+              <option value="purchase">Покупка товара</option>
+              <option value="consult">Консультация</option>
+              <option value="delivery">Уточнить доставку</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="order-product">Товар</label>
+            <select class="order-form__select" id="order-product" name="product">
+              <option value="">— не выбран —</option>
+              <option value="urban-runner">Кроссовки Urban Runner</option>
+              <option value="citypack">Кожаный рюкзак CityPack</option>
+              <option value="aurora">Серебряное кольцо Aurora</option>
+            </select>
+          </div>
+
+          <div class="order-form__field order-form__field--wide">
+            <label class="order-form__label" for="order-comment">Комментарий</label>
+            <textarea
+              class="order-form__textarea"
+              id="order-comment"
+              name="comment"
+              rows="4"
+              placeholder="Размер, цвет, пожелания по доставке"></textarea>
+          </div>
+
+          <div class="order-form__field order-form__field--checkbox order-form__field--wide">
+            <label class="order-form__checkbox-label">
+              <input
+                class="order-form__checkbox"
+                id="order-consent"
+                name="consent"
+                type="checkbox"
+                required>
+              Согласен на обработку персональных данных <span aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <div class="order-form__actions">
+            <button class="button button--primary" type="submit">Отправить заявку</button>
+            <button class="button button--secondary" type="reset">Очистить</button>
+          </div>
+        </form>
+
+        <p class="success-message" id="success-message-page" hidden>
+          Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
+        </p>
+      </section>
+
+      <aside class="order-layout__aside aside-info">
+        <h2>Что дальше</h2>
+        <ol class="order-steps">
+          <li>Мы проверяем наличие товара.</li>
+          <li>Менеджер связывается с вами по телефону или e-mail.</li>
+          <li>Подтверждаем заказ и способ доставки.</li>
+        </ol>
+
+        <h3>Контакты</h3>
+        <ul>
+          <li>Телефон: +7 (900) 000-00-00</li>
+          <li>E-mail: info@example.com</li>
+        </ul>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+</body>
+
+</html>
