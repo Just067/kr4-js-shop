@@ -15,6 +15,7 @@
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
   <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -24,7 +25,14 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" href="index.html">
@@ -45,6 +53,9 @@
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Заявка</a>
           </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -57,7 +68,8 @@
       <picture class="hero__media">
         <source media="(min-width: 1200px)" srcset="images/hero-desktop.jpg">
         <source media="(min-width: 768px)" srcset="images/hero-tablet.jpg">
-        <img src="images/hero-mobile.jpg" alt="Каталог учебных товаров" width="640" height="360" class="hero__image" fetchpriority="high">
+        <img src="images/hero-mobile.jpg" alt="Каталог учебных товаров" width="640" height="360" class="hero__image"
+          fetchpriority="high">
       </picture>
 
       <div class="hero__content">
@@ -88,7 +100,8 @@
 
       <div class="products-grid">
         <article class="product-card product-card--featured">
-          <img class="product-card__image" src="images/product-1.jpeg" alt="Кроссовки Urban Runner" width="300" height="200" loading="lazy">
+          <img class="product-card__image" src="images/product-1.jpeg" alt="Кроссовки Urban Runner" width="300"
+            height="200" loading="lazy">
           <h3 class="product-card__title">Кроссовки Urban Runner</h3>
           <p class="product-card__description">Лёгкие городские кроссовки с дышащим верхом и мягкой амортизацией.</p>
           <p class="product-card__price">Цена: 1000 руб.</p>
@@ -103,7 +116,8 @@
         </article>
 
         <article class="product-card product-card--featured">
-          <img class="product-card__image" src="images/product-2.jpg" alt="Кожаный рюкзак CityPack" width="300" height="200" loading="lazy">
+          <img class="product-card__image" src="images/product-2.jpg" alt="Кожаный рюкзак CityPack" width="300"
+            height="200" loading="lazy">
           <h3 class="product-card__title">Кожаный рюкзак CityPack</h3>
           <p class="product-card__description">Городской рюкзак из натуральной кожи с отделением для ноутбука.</p>
           <p class="product-card__price">Цена: 1500 руб.</p>
@@ -118,7 +132,8 @@
         </article>
 
         <article class="product-card product-card--featured">
-          <img class="product-card__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="300" height="200" loading="lazy">
+          <img class="product-card__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="300"
+            height="200" loading="lazy">
           <h3 class="product-card__title">Серебряное кольцо Aurora</h3>
           <p class="product-card__description">Минималистичное кольцо из серебра 925 пробы с фианитом.</p>
           <p class="product-card__price">Цена: 2000 руб.</p>
@@ -130,6 +145,7 @@
               Заказать
             </a>
           </div>
+        </article>
 
       </div>
     </section>

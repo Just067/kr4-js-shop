@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="cart.html">Корзина</a>
+          </li>
+        </ul>
+      </nav>
+      <a class="cart-counter" href="cart.html" aria-label="Перейти в корзину">
+        <span aria-hidden="true">🛒</span>
+        В корзине: <span data-cart-count>0</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Корзина</span>
+    </nav>
+
+    <section class="section">
+      <h1>Корзина</h1>
+    </section>
+
+    <section class="cart-empty" id="cart-empty" hidden>
+      <p class="cart-empty__text">В корзине пока нет товаров.</p>
+      <p class="cart-empty__hint">Добавьте товары из каталога, чтобы оформить заявку.</p>
+      <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
+    </section>
+
+    <section class="cart-content" id="cart-content" hidden>
+      <div class="cart-items" id="cart-items" aria-live="polite"></div>
+
+      <aside class="cart-summary" aria-label="Итого по корзине">
+        <h2>Итого</h2>
+        <p class="cart-summary__row">
+          <span>Товаров:</span>
+          <span id="cart-total-count">0</span>
+        </p>
+        <p class="cart-summary__row cart-summary__row--total">
+          <span>Сумма:</span>
+          <span><span id="cart-total-price">0</span> руб.</span>
+        </p>
+
+        <div class="cart-summary__actions">
+          <button class="button button--secondary" type="button" id="cart-clear">
+            Очистить корзину
+          </button>
+          <a class="button button--primary" href="order.html">
+            Оформить заявку
+          </a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+
+</html>

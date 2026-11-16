@@ -12,6 +12,8 @@
   <meta property="og:title" content="Оформление заявки — Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
+  <script src="js/cart.js" defer></script>
+  <script src="js/validation.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -21,7 +23,14 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html">
@@ -41,6 +50,9 @@
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина</a>
           </li>
         </ul>
       </nav>
@@ -73,40 +85,25 @@
             <label class="order-form__label" for="order-name">
               Имя <span aria-hidden="true">*</span>
             </label>
-            <input
-              class="order-form__input"
-              id="order-name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              required>
+            <input class="order-form__input" id="order-name" name="name" type="text" autocomplete="name" required>
+            <p class="form-error" id="order-name-error" role="alert"></p>
           </div>
 
           <div class="order-form__field">
             <label class="order-form__label" for="order-email">
               E-mail <span aria-hidden="true">*</span>
             </label>
-            <input
-              class="order-form__input"
-              id="order-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required>
+            <input class="order-form__input" id="order-email" name="email" type="email" autocomplete="email" required>
+            <p class="form-error" id="order-email-error" role="alert"></p>
           </div>
 
           <div class="order-form__field">
             <label class="order-form__label" for="order-phone">
               Телефон <span aria-hidden="true">*</span>
             </label>
-            <input
-              class="order-form__input"
-              id="order-phone"
-              name="phone"
-              type="tel"
-              autocomplete="tel"
-              placeholder="+7 (___) ___-__-__"
-              required>
+            <input class="order-form__input" id="order-phone" name="phone" type="tel" autocomplete="tel"
+              placeholder="+7 (___) ___-__-__" required>
+            <p class="form-error" id="order-phone-error" role="alert"></p>
           </div>
 
           <div class="order-form__field">
@@ -131,30 +128,24 @@
 
           <div class="order-form__field order-form__field--wide">
             <label class="order-form__label" for="order-comment">Комментарий</label>
-            <textarea
-              class="order-form__textarea"
-              id="order-comment"
-              name="comment"
-              rows="4"
+            <textarea class="order-form__textarea" id="order-comment" name="comment" rows="4"
               placeholder="Размер, цвет, пожелания по доставке"></textarea>
           </div>
 
           <div class="order-form__field order-form__field--checkbox order-form__field--wide">
             <label class="order-form__checkbox-label">
-              <input
-                class="order-form__checkbox"
-                id="order-consent"
-                name="consent"
-                type="checkbox"
-                required>
+              <input class="order-form__checkbox" id="order-consent" name="consent" type="checkbox" required>
               Согласен на обработку персональных данных <span aria-hidden="true">*</span>
             </label>
+            <p class="form-error" id="order-consent-error" role="alert"></p>
           </div>
 
           <div class="order-form__actions">
             <button class="button button--primary" type="submit">Отправить заявку</button>
             <button class="button button--secondary" type="reset">Очистить</button>
           </div>
+
+          <p class="form-message" role="status" aria-live="polite"></p>
         </form>
 
         <p class="success-message" id="success-message-page" hidden>

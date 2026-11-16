@@ -12,7 +12,7 @@
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
-
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +21,14 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html">
@@ -41,6 +48,9 @@
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина</a>
           </li>
         </ul>
       </nav>

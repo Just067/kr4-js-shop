@@ -12,6 +12,7 @@
   <meta property="og:title" content="Серебряное кольцо Aurora">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +21,14 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html">
@@ -41,6 +49,9 @@
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Заявка</a>
           </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -55,7 +66,8 @@
 
     <section class="product-detail section">
       <div class="product-detail__media">
-        <img class="product-detail__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="600" height="400">
+        <img class="product-detail__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="600"
+          height="400">
       </div>
 
       <div class="product-detail__info">
@@ -81,32 +93,32 @@
 
       <div class="table-wrapper">
         <table class="product-table">
-        <caption>Технические характеристики учебного товара</caption>
-        <thead>
-          <tr>
-            <th scope="col">Параметр</th>
-            <th scope="col">Значение</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Категория</td>
-            <td>Кольца</td>
-          </tr>
-          <tr>
-            <td>Цена</td>
-            <td>2000 руб.</td>
-          </tr>
-          <tr>
-            <td>Наличие</td>
-            <td>В наличии</td>
-          </tr>
-          <tr>
-            <td>Гарантия</td>
-            <td>12 месяцев</td>
-          </tr>
-        </tbody>
-      </table>
+          <caption>Технические характеристики учебного товара</caption>
+          <thead>
+            <tr>
+              <th scope="col">Параметр</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Категория</td>
+              <td>Кольца</td>
+            </tr>
+            <tr>
+              <td>Цена</td>
+              <td>2000 руб.</td>
+            </tr>
+            <tr>
+              <td>Наличие</td>
+              <td>В наличии</td>
+            </tr>
+            <tr>
+              <td>Гарантия</td>
+              <td>12 месяцев</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -123,7 +135,7 @@
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
-  
+
 </body>
 
 </html>
