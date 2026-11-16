@@ -13,6 +13,8 @@
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://Just067.github.io/kr1-html-css-shop/images/preview.jpg">
   <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -22,7 +24,14 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav-toggle" type="button" id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false"
+        aria-label="Открыть меню">
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+        <span class="site-nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html">
@@ -42,6 +51,9 @@
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина</a>
           </li>
         </ul>
       </nav>
@@ -65,108 +77,44 @@
     </section>
 
     <section class="catalog-layout">
-      <aside class="catalog-filters">
-        <h2>Фильтры</h2>
+      <section class="catalog-controls" aria-label="Управление каталогом">
+        <div class="catalog-controls__group">
+          <label for="catalog-search">Поиск товара</label>
+          <input id="catalog-search" class="catalog-controls__input" type="search" placeholder="Введите название товара"
+            autocomplete="off">
+        </div>
 
-        <form class="filters-form" action="#" method="get">
-          <fieldset>
-            <legend>Категория</legend>
+        <div class="catalog-controls__group">
+          <label for="category-filter">Категория</label>
+          <select id="category-filter" class="catalog-controls__select">
+            <option value="all">Все категории</option>
+            <option value="kitchen">Кухня</option>
+            <option value="home">Дом</option>
+            <option value="electronics">Электроника</option>
+            <option value="shoes">Обувь</option>
+            <option value="accessories">Аксессуары</option>
+          </select>
+        </div>
 
-            <label>
-              <input type="checkbox" name="category" value="all">
-              Все товары
-            </label>
+        <div class="catalog-controls__group">
+          <label for="sort-select">Сортировка</label>
+          <select id="sort-select" class="catalog-controls__select">
+            <option value="default">По умолчанию</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <option value="title-asc">По названию А-Я</option>
+          </select>
+        </div>
+      </section>
 
-            <label>
-              <input type="checkbox" name="category" value="popular">
-              Популярные
-            </label>
+      <p class="catalog-count" aria-live="polite"></p>
+      <p class="catalog-empty" hidden>По выбранным условиям товары не найдены.</p>
 
-            <label>
-              <input type="checkbox" name="category" value="new">
-              Новинки
-            </label>
-          </fieldset>
-
-          <fieldset>
-            <legend>Цена</legend>
-
-            <label for="price-from">От</label>
-            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
-
-            <label for="price-to">До</label>
-            <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
-          </fieldset>
-
-          <button class="button" type="submit">Применить</button>
-        </form>
-      </aside>
 
       <section class="catalog-products">
         <h2>Список товаров</h2>
 
-        <div class="products-grid">
-
-          <article class="product-card product-card--featured product-card--new">
-            <span class="product-card__badge">Новинка</span>
-            <img class="product-card__image" src="images/product-1.jpeg" alt="Кроссовки Urban Runner" width="300" height="200" loading="lazy">
-            <h3 class="product-card__title">Кроссовки Urban Runner</h3>
-            <p class="product-card__description">
-              Лёгкие городские кроссовки с дышащим верхом и мягкой амортизацией.
-            </p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-
-            <div class="product-card__actions">
-              <a class="button button--primary product-card__button" href="product-1.html">
-                Подробнее
-              </a>
-              <a class="button button--secondary product-card__button"
-                href="order.html?product=Кроссовки%20Urban%20Runner">
-                Заказать
-              </a>
-            </div>
-          </article>
-
-          <article class="product-card product-card--featured product-card--hit">
-            <span class="product-card__badge product-card__badge--hit">Хит</span>
-            <img class="product-card__image" src="images/product-2.jpg" alt="Кожаный рюкзак CityPack" width="300" height="200" loading="lazy">
-            <h3 class="product-card__title">Кожаный рюкзак CityPack</h3>
-            <p class="product-card__description">
-              Городской рюкзак из натуральной кожи с отделением для ноутбука.
-            </p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--primary product-card__button" href="product-2.html">
-                Подробнее
-              </a>
-              <a class="button button--secondary product-card__button"
-                href="order.html?product=Кожаный%20рюкзак%20CityPack">
-                Заказать
-              </a>
-            </div>
-
-          </article>
-
-          <article class="product-card product-card--discount">
-            <span class="product-card__badge">Скидка −20%</span>
-            <img class="product-card__image" src="images/product-3.jpg" alt="Серебряное кольцо Aurora" width="300" height="200" loading="lazy">
-            <h3 class="product-card__title">Серебряное кольцо Aurora</h3>
-            <p class="product-card__description">
-              Минималистичное кольцо из серебра 925 пробы с фианитом.
-            </p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-
-            <div class="product-card__actions">
-              <a class="button button--primary product-card__button" href="product-3.html">
-                Подробнее
-              </a>
-              <a class="button button--secondary product-card__button"
-                href="order.html?product=Серебряное%20кольцо%20Aurora">
-                Заказать
-              </a>
-            </div>
-          </article>
-        </div>
+        <div class="products-grid" data-products-container></div>
       </section>
     </section>
   </main>

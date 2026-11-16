@@ -3,12 +3,6 @@ const openCallbackButton = document.getElementById('open-callback-dialog');
 const closeCallbackButton = document.getElementById('close-callback-dialog');
 const callbackForm = document.getElementById('callback-form');
 const callbackSuccess = document.getElementById('callback-success');
-const pageForm = document.getElementById('order-form-page');
-const pageSuccess = document.getElementById('success-message-page');
-
-function formatPrice(price) {
-  return `${price} руб.`;
-}
 
 function calculateDiscount(price, discountPercent) {
   return price * discountPercent / 100;
@@ -42,38 +36,6 @@ function getAvailableProducts(products) {
   return products.filter((product) => product.isAvailable);
 }
 
-function searchProducts(products, query) {
-  const normalizedQuery = query.trim().toLowerCase();
-
-  if (normalizedQuery === '') {
-    return products;
-  }
-
-  return products.filter((product) => {
-    return product.title.toLowerCase().includes(normalizedQuery);
-  });
-}
-
-function filterProductsByCategory(products, category) {
-  if (category === 'all') {
-    return products;
-  }
-
-  return products.filter((product) => {
-    return product.category === category;
-  });
-}
-
-function sortProductsByPrice(products, direction = 'asc') {
-  const productsCopy = [...products];
-
-  if (direction === 'desc') {
-    return productsCopy.sort((a, b) => b.price - a.price);
-  }
-
-  return productsCopy.sort((a, b) => a.price - b.price);
-}
-
 function findProductById(products, id) {
   return products.find((product) => product.id === id);
 }
@@ -95,54 +57,6 @@ function calculateAveragePrice(products) {
 
   const totalPrice = calculateTotalPrice(products);
   return Math.round(totalPrice / products.length);
-}
-
-function getPreparedProducts(products, query, category, sortDirection) {
-  let result = [...products];
-
-  result = searchProducts(result, query);
-  result = filterProductsByCategory(result, category);
-  result = sortProductsByPrice(result, sortDirection);
-
-  return result;
-}
-
-if (pageForm) {
-  pageForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const elements = Array.from(pageForm.elements);
-
-    elements.forEach((element) => {
-      if (element.willValidate) {
-        element.removeAttribute('aria-invalid');
-      }
-    });
-
-    if (!pageForm.checkValidity()) {
-      elements.forEach((element) => {
-        if (element.willValidate && !element.checkValidity()) {
-          element.setAttribute('aria-invalid', 'true');
-        }
-      });
-
-      pageForm.reportValidity();
-      return;
-    }
-
-    if (pageSuccess) {
-      pageSuccess.hidden = false;
-      pageSuccess.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    pageForm.reset();
-
-    setTimeout(() => {
-      if (pageSuccess) {
-        pageSuccess.hidden = true;
-      }
-    }, 2000);
-  });
 }
 
 if (openCallbackButton && callbackDialog) {
@@ -202,5 +116,55 @@ if (callbackForm && callbackDialog) {
       callbackSuccess.hidden = true;
     }, 1500);
 
+  });
+}
+
+/* ===============================
+   Мобильное меню (гамбургер)
+   =============================== */
+
+const navToggle = document.getElementById('site-nav-toggle');
+const siteNav = document.getElementById('site-nav');
+
+if (navToggle && siteNav) {
+  function setNavExpanded(isOpen) {
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    siteNav.classList.toggle('site-nav--open', isOpen);
+  }
+
+  // Открыть / закрыть по клику на кнопку.
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    setNavExpanded(!isOpen);
+  });
+
+  // Закрыть по Escape.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+      setNavExpanded(false);
+      navToggle.focus();
+    }
+  });
+
+  // Закрыть при клике по ссылке меню (пользователь выбрал пункт).
+  siteNav.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      setNavExpanded(false);
+    }
+  });
+
+  // Закрыть при клике вне меню.
+  document.addEventListener('click', (event) => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    if (!isOpen) return;
+    if (event.target.closest('#site-nav') || event.target.closest('#site-nav-toggle')) return;
+    setNavExpanded(false);
+  });
+
+  // Закрыть при переходе на десктопную ширину (поворот экрана, ресайз).
+  const desktopQuery = window.matchMedia('(min-width: 768px)');
+  desktopQuery.addEventListener('change', (event) => {
+    if (event.matches) setNavExpanded(false);
   });
 }
